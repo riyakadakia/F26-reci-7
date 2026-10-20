@@ -28,7 +28,7 @@ const shift = (w: string, n: number) =>
   [...w].map(c => FULL_ALPHA[(FULL_ALPHA.indexOf(c) + n) %26]).join('');
 
 describe('matchGuess', () => {
-  /// Pattern: invariant. The result always has exactly five colors.
+  // Pattern: invariant. The result always has exactly five colors.
   it('returns exactly five colors', () => {
     fc.assert(
       fc.property(word, word, (secret, guess) => {
@@ -66,8 +66,8 @@ describe('matchGuess', () => {
       }),
     );
   });
+  // Targeted generator: secret and guess come from disjoint halves of the alphabet.
   // Pattern: conditional. If the guess shares no letters with the secret, every color is B.
-  // Targeted Generator 
   it('has completely different letters (no overlap)', () => {
     fc.assert(
       fc.property(diff_first, diff_second, (secret, guess) => {
